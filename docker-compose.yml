@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  central:
+    image: php:8.2-cli
+    container_name: php_central
+    volumes:
+      - ./central:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+
+  php1:
+    image: php:8.2-cli
+    container_name: php_instance_1
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8001
+    ports:
+      - "8001:8001"
+
+  php2:
+    image: php:8.2-cli
+    container_name: php_instance_2
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8002
+    ports:
+      - "8002:8002"
+
+  php3:
+    image: php:8.2-cli
+    container_name: php_instance_3
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8003
+    ports:
+      - "8003:8003"
+
+  php4:
+    image: php:8.2-cli
+    container_name: php_instance_4
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8004
+    ports:
+      - "8004:8004"
+
+  php5:
+    image: php:8.2-cli
+    container_name: php_instance_5
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8005
+    ports:
+      - "8005:8005"
+
+  php6:
+    image: php:8.2-cli
+    container_name: php_instance_6
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8006
+    ports:
+      - "8006:8006"
+
+  php7:
+    image: php:8.2-cli
+    container_name: php_instance_7
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8007
+    ports:
+      - "8007:8007"
+
+  php8:
+    image: php:8.2-cli
+    container_name: php_instance_8
+    volumes:
+      - ./instance:/var/www/html
+    working_dir: /var/www/html
+    command: php -S 0.0.0.0:8008
+    ports:
+      - "8008:8008"

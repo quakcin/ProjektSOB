@@ -1,0 +1,9 @@
+[2025-05-04 20:40:15] Zakutalizowano strukturę grafu
+[2025-05-04 20:40:20] Wysyłanie komunikatu z S1 do S7: 0100100000010010
+[2025-05-04 20:40:20] [S1] Przekazuje komunikat do: S2
+[2025-05-04 20:40:20] [S2] Przekazuje komunikat do: S3
+[2025-05-04 20:40:20] [S3] Przekazuje komunikat do: S4
+[2025-05-04 20:40:20] [S4] Przekazuje komunikat do: S5
+[2025-05-04 20:40:20] [S5] Przekazuje komunikat do: S6
+[2025-05-04 20:40:20] [S6] Przekazuje komunikat do: S7
+[2025-05-04 20:40:20] [S7] Komunikat dotarł do odbiorcy: 0100100000010010
