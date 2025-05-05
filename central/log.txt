@@ -1,9 +1,14 @@
-[2025-05-04 20:40:15] Zakutalizowano strukturę grafu
-[2025-05-04 20:40:20] Wysyłanie komunikatu z S1 do S7: 0100100000010010
-[2025-05-04 20:40:20] [S1] Przekazuje komunikat do: S2
-[2025-05-04 20:40:20] [S2] Przekazuje komunikat do: S3
-[2025-05-04 20:40:20] [S3] Przekazuje komunikat do: S4
-[2025-05-04 20:40:20] [S4] Przekazuje komunikat do: S5
-[2025-05-04 20:40:20] [S5] Przekazuje komunikat do: S6
-[2025-05-04 20:40:20] [S6] Przekazuje komunikat do: S7
-[2025-05-04 20:40:20] [S7] Komunikat dotarł do odbiorcy: 0100100000010010
+[2025-05-05 21:10:22] Wysyłanie komunikatu z S1 do S7: 0100 0001 0001 0100
+[2025-05-05 21:10:22] [S1] Przekazuje komunikat: 0100 0001 0001 0100 do: S2
+[2025-05-05 21:10:22] [S2] Przekazuje komunikat: 0100 0001 0001 0100 do: S3
+[2025-05-05 21:10:22] [S2] Symuluje błąd: 0100 0011 0001 0100 w: 0000 0010 0000 0000
+[2025-05-05 21:10:22] [S3] Wykryto błąd pojedyńczy!
+[2025-05-05 21:10:22] [S3] Korekta: 0100 0001 0001 0100 , w pozycji: 6
+[2025-05-05 21:10:22] [S3] Przekazuje komunikat: 0100 0001 0001 0100 do: S4
+[2025-05-05 21:10:22] [S3] Symuluje błąd: 0100 0001 1001 0100 w: 0000 0000 1000 0000
+[2025-05-05 21:10:22] [S4] Wykryto błąd pojedyńczy!
+[2025-05-05 21:10:22] [S4] Korekta: 0100 0001 0001 0100 , w pozycji: 8
+[2025-05-05 21:10:22] [S4] Przekazuje komunikat: 0100 0001 0001 0100 do: S5
+[2025-05-05 21:10:22] [S5] Przekazuje komunikat: 0100 0001 0001 0100 do: S6
+[2025-05-05 21:10:22] [S5] Symuluje błąd: 0100 0011 0101 0100 w: 0000 0010 0100 0000
+[2025-05-05 21:10:22] [S6] Wykryto błąd podwójny, poddaje się!

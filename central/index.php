@@ -5,6 +5,11 @@ if ($_SERVER['REQUEST_URI'] === "/getlog") {
 	exit;
 }
 
+function msg_pp ($msg)
+{
+    return substr($msg, 0, 4) . " " . substr($msg, 4, 4) . " " . substr($msg, 8, 4) . " " . substr($msg, 12, 4);
+}
+
 function log_msg ($msg)
 {
 	file_put_contents("./log.txt", "[" . date('Y-m-d G:i:s') . "] " . $msg . "\n", FILE_APPEND);
@@ -21,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && $_POST['action'] == "log") {
 
 function cmd_broadcast ($cmd)
 {
-	for ($i = 1; $i <= 8; $i++) {
+	for ($i = 1; $i <= 7; $i++) {
 		cmd_send($cmd, $i);
 	}
 }
@@ -228,7 +233,7 @@ function cmd_send ($cmd, $serverId)
 			}
 		}
 
-		log_msg("Wysyłanie komunikatu z S{$_POST['from']} do S{$_POST['to']}: {$msg}");
+		log_msg("Wysyłanie komunikatu z S{$_POST['from']} do S{$_POST['to']}: " . msg_pp($msg));
 
 		cmd_send([
 			"action" => "komunikat",
@@ -243,13 +248,13 @@ function cmd_send ($cmd, $serverId)
 
 	Od: 
 	<select name="from">
-		<? for ($i = 1; $i <= 8; $i++): ?>
+		<? for ($i = 1; $i < 8; $i++): ?>
 			<option value="<?= $i ?>">S<?= $i ?></option>
 		<? endfor ?>
 	</select>
 	Do: 
 	<select name="to">
-		<? for ($i = 1; $i <= 8; $i++): ?>
+		<? for ($i = 1; $i < 8; $i++): ?>
 			<option value="<?= $i ?>">S<?= $i ?></option>
 		<? endfor ?>
 	</select>
@@ -284,3 +289,33 @@ function cmd_send ($cmd, $serverId)
 	<input type="hidden" name="action" value="clear_log" />
 	<button>Wyczyść</button>
 </form>
+
+
+<hr/> <h3>Symulacja błędów</h3>
+
+<?php
+	$editView = null;
+
+	if ($_SERVER['REQUEST_METHOD'] === "POST" && $_POST['action'] === "edit") {
+		$editView = (int) $_POST['server'];
+	}
+?>
+
+<? if ($editView): ?>
+	<iframe src="http://localhost:800<?= $editView ?>" style="width: 100%"></iframe>
+<? endif; ?>
+
+<table>
+	<tr>
+		<? for ($i = 1; $i <= 7; $i++): ?>
+			<td>
+				<form action="/" method="POST">
+					<input type="hidden" name="action" value="edit" />
+					<input type="hidden" name="server" value="<?= $i ?>" />
+					<button>S<?= $i ?></button>
+				</form>
+			</td>
+		<? endfor ?>
+	</tr>
+</table>
+
