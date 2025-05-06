@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{o}{\PYGZlt{}}\PYG{n+nx}{html}\PYG{o}{\PYGZgt{}}
+	\PYG{o}{\PYGZlt{}}\PYG{n+nx}{head}\PYG{o}{\PYGZgt{}}
+		\PYG{o}{\PYGZlt{}}\PYG{n+nx}{meta} \PYG{n+nx}{http}\PYG{o}{\PYGZhy{}}\PYG{n+nx}{equiv}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}refresh\PYGZdq{}} \PYG{n+nx}{content}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}3\PYGZdq{}}\PYG{o}{\PYGZgt{}}
+	\PYG{o}{\PYGZlt{}/}\PYG{n+nx}{head}\PYG{o}{\PYGZgt{}}
+	\PYG{o}{\PYGZlt{}}\PYG{n+nx}{body}\PYG{o}{\PYGZgt{}}
+	\PYG{o}{\PYGZlt{}?}\PYG{n+nx}{php}
+		\PYG{n+nv}{\PYGZdl{}lines} \PYG{o}{=} \PYG{n+nb}{explode}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{file\PYGZus{}get\PYGZus{}contents}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}./log.txt\PYGZdq{}}\PYG{p}{));}
+
+		\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{n+nb}{count}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}lines}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{echo} \PYG{n+nv}{\PYGZdl{}lines}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{}\PYGZlt{}br/\PYGZgt{}\PYGZdq{}}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{c+cp}{?\PYGZgt{}}
+\PYG{x}{	\PYGZlt{}/body\PYGZgt{}}
+\PYG{x}{\PYGZlt{}/html\PYGZgt{}}
+\end{Verbatim}

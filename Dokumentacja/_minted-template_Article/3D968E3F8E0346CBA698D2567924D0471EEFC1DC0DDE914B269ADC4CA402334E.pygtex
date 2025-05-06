@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+[S4] S4 przestawia bity: 0000 1100 0000 0000
+Wysyłanie komunikatu z S1 do S7: 1101 1000 1110 0100
+[S1] Przekazuje komunikat: 1101 1000 1110 0100 do: S2
+[S1] Symuluje błąd: 1101 1100 1110 0100 w: 0000 0100 0000 0000
+[S2] Wykryto błąd pojedyńczy!
+[S2] Korekta: 1101 1000 1110 0100 , w pozycji: 5
+[S2] Przekazuje komunikat: 1101 1000 1110 0100 do: S3
+[S2] Symuluje błąd: 1101 1010 1110 0100 w: 0000 0010 0000 0000
+[S3] Wykryto błąd pojedyńczy!
+[S3] Korekta: 1101 1000 1110 0100 , w pozycji: 6
+[S3] Przekazuje komunikat: 1101 1000 1110 0100 do: S4
+[S3] Symuluje błąd: 1101 1000 0110 0100 w: 0000 0000 1000 0000
+[S4] Wykryto błąd pojedyńczy!
+[S4] Korekta: 1101 1000 1110 0100 , w pozycji: 8
+[S4] Przekazuje komunikat: 1101 1000 1110 0100 do: S5
+[S4] Symuluje błąd: 1101 0100 1110 0100 w: 0000 1100 0000 0000
+[S5] Wykryto błąd podwójny, poddaje się!
+\end{Verbatim}

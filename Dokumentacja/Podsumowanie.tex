@@ -1,0 +1,9 @@
+\section{Podsumowanie}
+
+Celem projektu było stworzenie systemu transmisji danych o podwyższonej niezawodności, złożonego z ośmiu serwerów połączonych w graf, z centralnym serwerem nadzorującym. Kluczowym elementem projektu było zastosowanie 16-bitowych bloków danych zabezpieczonych kodem Hamminga z dodatkowym bitem parzystości (SECDED), umożliwiającym korekcję pojedynczych błędów i detekcję podwójnych.
+
+\paragraph{}Do realizacji systemu wykorzystano kontenery Docker, co zapewniło izolację środowisk serwerów i ułatwiło zarządzanie nimi. Serwer centralny oraz serwery podrzędne komunikują się poprzez interfejs HTTP, a konfiguracja połączeń między nimi jest dowolna i dynamicznie definiowana. Logika trasowania wiadomości oparta jest na rekursywnym przeszukiwaniu grafu, bez optymalizacji ścieżek.
+
+\paragraph{}Zaimplementowano również mechanizm symulacji błędów, pozwalający użytkownikowi ręcznie wprowadzać błędy w przesyłanych bitach na poziomie każdego serwera. Dzięki temu możliwe było testowanie działania kodu Hamminga w różnych scenariuszach: bez błędów, z pojedynczymi błędami (automatycznie korygowanymi) oraz z podwójnymi błędami (wykrywanymi, ale niekorygowanymi).
+
+\paragraph{}Projekt zawierał też panel do tworzenia i wysyłania komunikatów oraz system logowania operacji, widoczny dla użytkownika w czasie rzeczywistym. Testy wykazały skuteczność systemu w korekcji błędów pojedynczych oraz poprawność obsługi błędów podwójnych, co potwierdziło odporność systemu na zakłócenia transmisji.

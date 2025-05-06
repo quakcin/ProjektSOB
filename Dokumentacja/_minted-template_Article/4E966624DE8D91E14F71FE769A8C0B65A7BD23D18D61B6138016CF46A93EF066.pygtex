@@ -1,0 +1,44 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}SERVER}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}REQUEST\PYGZus{}METHOD\PYGZdq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}POST\PYGZdq{}} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}action\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}komunikat\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	
+	\PYG{n+nv}{\PYGZdl{}msg} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}msg\PYGZsq{}}\PYG{p}{];}
+	
+	\PYG{l+s+sd}{/** Sprawdzeneie czy komuniakt posiada błąd */}
+	\PYG{n+nv}{\PYGZdl{}msg} \PYG{o}{=} \PYG{n+nx}{hamming\PYGZus{}check}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{);}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg} \PYG{o}{===} \PYG{k}{false}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{exit}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}to\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{n+nv}{\PYGZdl{}serverId}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{l+s+sd}{/** Jesteśmy odbiorcą! */}
+		\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Komunikat dotarł do odbiorcy: \PYGZdq{}} \PYG{o}{.} \PYG{n+nx}{msg\PYGZus{}pp}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{));}
+		\PYG{k}{exit}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nv}{\PYGZdl{}route} \PYG{o}{=} \PYG{n+nx}{route\PYGZus{}graph}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}to\PYGZsq{}}\PYG{p}{]);}
+	
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}route} \PYG{o}{==} \PYG{k}{null}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{l+s+sd}{/** Droga nie istnieje */}
+		\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Droga do S}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}to\PYGZsq{}}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ przez S}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}serverId}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ nie istnieje!\PYGZdq{}}\PYG{p}{);}
+		\PYG{k}{exit}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Przekazuje komunikat: \PYGZdq{}} \PYG{o}{.} \PYG{n+nx}{msg\PYGZus{}pp}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{)} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{} do: S}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}route}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{);}
+	
+	\PYG{l+s+sd}{/** Symulacja błędu na podstawie ustawień */}
+	\PYG{n+nv}{\PYGZdl{}bits} \PYG{o}{=} \PYG{n+nx}{load\PYGZus{}toggler}\PYG{p}{();}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nb}{strpos}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}1\PYGZdq{}}\PYG{p}{)} \PYG{o}{!==} \PYG{k}{false}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}msg} \PYG{o}{=} \PYG{n+nx}{toggler\PYGZus{}sim}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{);}
+		\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Symuluje błąd: \PYGZdq{}} \PYG{o}{.} \PYG{n+nx}{msg\PYGZus{}pp}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{)} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{} w: \PYGZdq{}} \PYG{o}{.} \PYG{n+nx}{msg\PYGZus{}pp}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{));}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{l+s+sd}{/** Przekazujemy komunikat do kolejnego serwera */}
+	\PYG{n+nx}{cmd\PYGZus{}send}\PYG{p}{([}
+		\PYG{l+s+s2}{\PYGZdq{}action\PYGZdq{}} \PYG{o}{=\PYGZgt{}} \PYG{l+s+s2}{\PYGZdq{}komunikat\PYGZdq{}}\PYG{p}{,}
+		\PYG{l+s+s2}{\PYGZdq{}msg\PYGZdq{}} \PYG{o}{=\PYGZgt{}} \PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{,}
+		\PYG{l+s+s2}{\PYGZdq{}to\PYGZdq{}} \PYG{o}{=\PYGZgt{}} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}to\PYGZsq{}}\PYG{p}{]}
+	\PYG{p}{],} \PYG{p}{(}\PYG{n+nx}{int}\PYG{p}{)} \PYG{n+nv}{\PYGZdl{}route}\PYG{p}{);}
+	
+	\PYG{k}{exit}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

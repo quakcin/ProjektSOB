@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{+w}{		}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{n+nt}{\PYGZdq{}1\PYGZdq{}}\PYG{p}{:[}\PYG{l+s+s2}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}4\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}7\PYGZdq{}}\PYG{p}{],}
+\PYG{+w}{			}\PYG{n+nt}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{:[}\PYG{l+s+s2}{\PYGZdq{}5\PYGZdq{}}\PYG{p}{],}
+\PYG{+w}{			}\PYG{n+nt}{\PYGZdq{}3\PYGZdq{}}\PYG{p}{:[}\PYG{l+s+s2}{\PYGZdq{}4\PYGZdq{}}\PYG{p}{],}
+\PYG{+w}{			}\PYG{n+nt}{\PYGZdq{}4\PYGZdq{}}\PYG{p}{:[}\PYG{l+s+s2}{\PYGZdq{}6\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}7\PYGZdq{}}\PYG{p}{],}
+\PYG{+w}{			}\PYG{n+nt}{\PYGZdq{}5\PYGZdq{}}\PYG{p}{:[}\PYG{l+s+s2}{\PYGZdq{}7\PYGZdq{}}\PYG{p}{]}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

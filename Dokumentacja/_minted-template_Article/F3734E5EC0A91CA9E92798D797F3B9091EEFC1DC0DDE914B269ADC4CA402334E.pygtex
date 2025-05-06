@@ -1,0 +1,36 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+version: \PYGZsq{}3.8\PYGZsq{}
+services:
+central:
+image: php:8.2\PYGZhy{}cli
+container\PYGZus{}name: php\PYGZus{}central
+volumes:
+\PYGZhy{} ./central:/var/www/html
+working\PYGZus{}dir: /var/www/html
+command: php \PYGZhy{}S 0.0.0.0:8000
+ports:
+\PYGZhy{} \PYGZdq{}8000:8000\PYGZdq{}
+
+php1:
+image: php:8.2\PYGZhy{}cli
+container\PYGZus{}name: php\PYGZus{}instance\PYGZus{}1
+volumes:
+\PYGZhy{} ./instance:/var/www/html
+working\PYGZus{}dir: /var/www/html
+command: php \PYGZhy{}S 0.0.0.0:8001
+ports:
+\PYGZhy{} \PYGZdq{}8001:8001\PYGZdq{}
+
+...
+
+php8:
+image: php:8.2\PYGZhy{}cli
+container\PYGZus{}name: php\PYGZus{}instance\PYGZus{}8
+volumes:
+\PYGZhy{} ./instance:/var/www/html
+working\PYGZus{}dir: /var/www/html
+command: php \PYGZhy{}S 0.0.0.0:8008
+ports:
+\PYGZhy{} \PYGZdq{}8008:8008\PYGZdq{}
+
+\end{Verbatim}

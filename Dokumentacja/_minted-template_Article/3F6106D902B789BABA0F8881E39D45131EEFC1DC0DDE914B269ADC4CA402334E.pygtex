@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Wysyłanie komunikatu z S7 do S1: 0000 0000 0000 0000
+[S7] Przekazuje komunikat: 0000 0000 0000 0000 do: S6
+[S7] Symuluje błąd: 0001 0000 0000 0000 w: 0001 0000 0000 0000
+[S6] Wykryto błąd pojedyńczy!
+[S6] Korekta: 0000 0000 0000 0000 , w pozycji: 3
+[S6] Przekazuje komunikat: 0000 0000 0000 0000 do: S5
+[S6] Symuluje błąd: 0000 0000 0000 0010 w: 0000 0000 0000 0010
+[S5] Wykryto błąd pojedyńczy!
+[S5] Korekta: 0000 0000 0000 0000 , w pozycji: 14
+[S5] Przekazuje komunikat: 0000 0000 0000 0000 do: S4
+[S5] Symuluje błąd: 0000 0010 0000 0000 w: 0000 0010 0000 0000
+[S4] Wykryto błąd pojedyńczy!
+[S4] Korekta: 0000 0000 0000 0000 , w pozycji: 6
+[S4] Przekazuje komunikat: 0000 0000 0000 0000 do: S3
+[S3] Przekazuje komunikat: 0000 0000 0000 0000 do: S2
+[S3] Symuluje błąd: 0000 0000 1000 0000 w: 0000 0000 1000 0000
+[S2] Wykryto błąd pojedyńczy!
+[S2] Korekta: 0000 0000 0000 0000 , w pozycji: 8
+[S2] Przekazuje komunikat: 0000 0000 0000 0000 do: S1
+[S2] Symuluje błąd: 0000 0010 0000 0000 w: 0000 0010 0000 0000
+[S1] Wykryto błąd pojedyńczy!
+[S1] Korekta: 0000 0000 0000 0000 , w pozycji: 6
+[S1] Komunikat dotarł do odbiorcy: 0000 0000 0000 0000
+\end{Verbatim}

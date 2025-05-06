@@ -1,0 +1,39 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}SERVER}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}REQUEST\PYGZus{}METHOD\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}POST\PYGZdq{}} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}action\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}komunikat\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	
+	\PYG{n+nv}{\PYGZdl{}hamming} \PYG{o}{=} \PYG{p}{[}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],}
+	\PYG{p}{];}
+	
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}j}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{isset}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}bit\PYGZus{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}i}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{x}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}j}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{])} \PYG{o}{?} \PYG{l+m+mi}{1} \PYG{o}{:} \PYG{l+m+mi}{0}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{3}\PYG{p}{];}
+		\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{3}\PYG{p}{];}
+		
+		\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{];}
+		\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{];}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	
+	\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}j}\PYG{p}{];}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nv}{\PYGZdl{}hamming}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+\end{Verbatim}

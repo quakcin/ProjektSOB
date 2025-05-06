@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.25)  23 MAR 2025 22:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.25)  6 MAY 2025 19:45
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -598,7 +598,7 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count329
 \l__pdf_internal_box=\box64
 )
-(template_Article.aux (Wstęp.aux))
+(template_Article.aux (Wstęp.aux) (Realizacja.aux) (Podsumowanie.aux))
 \openout1 = `template_Article.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
@@ -725,7 +725,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
  (C:\Program Files\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (2.8914pt too wide) in paragraph at lines 18--19
+Overfull \hbox (2.8914pt too wide) in paragraph at lines 17--18
 []\T1/lmr/m/n/12 Celem re-ali-zo-wa-nego pro-jektu jest stwo-rze-nie sys-temu t
 rans-mi-sji da-nych z o�mioma
  []
@@ -733,28 +733,287 @@ rans-mi-sji da-nych z o�mioma
 [2
 
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] [3]) [4]
-(template_Article.aux (Wstęp.aux))
+\openout2 = `Realizacja.aux'.
+
+
+(Realizacja.tex
+\openout3 = `template_Article.pyg'.
+
+ (_minted-template_Article/default.pygstyle)
+(_minted-template_Article/F3734E5EC0A91CA9E92798D797F3B9091EEFC1DC0DDE914B269AD
+C4CA402334E.pygtex
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+.
+ (C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+2.
+
+(C:\Program Files\MiKTeX\tex/latex/lm\ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 51.
+See the caption package documentation for explanation.
+
+Package hyperref Info: bookmark level for unknown listing defaults to 0 on inpu
+t line 51.
+[5
+
+
+
+]
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/1054BB4222AEDEC8AC2070D1400830DDA7BD23D18D61B6138016C
+F46A93EF066.pygtex
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2.
+)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 91.
+See the caption package documentation for explanation.
+
+[6]
+<materiały/screen1.png, id=86, 218.8175pt x 303.1325pt>
+File: materiały/screen1.png Graphic file (type png)
+<use materiały/screen1.png>
+Package pdftex.def Info: materiały/screen1.png  used on input line 100.
+(pdftex.def)             Requested size: 130.08731pt x 180.21574pt.
+<materiały/screen2.png, id=87, 281.05pt x 348.30125pt>
+File: materiały/screen2.png Graphic file (type png)
+<use materiały/screen2.png>
+Package pdftex.def Info: materiały/screen2.png  used on input line 110.
+(pdftex.def)             Requested size: 151.76964pt x 188.08519pt.
+ [7 <./materiały/screen1.png (PNG copy)> <./materiały/screen2.png>]
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/8C8BE3B5B4666476D542EB9EF665D4ACA7BD23D18D61B6138016C
+F46A93EF066.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 169.
+See the caption package documentation for explanation.
+
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/6846DA8CC6FB8553F0B008F5968C906865EA189340D7A58C3A022
+01F5E5D04AA.pygtex [8])
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 193.
+See the caption package documentation for explanation.
+
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/14F9A570360221C6F3639FA02929D15CA7BD23D18D61B6138016C
+F46A93EF066.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 241.
+See the caption package documentation for explanation.
+
+[9]
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/11F2047F560C9EF46C74E12554271803A7BD23D18D61B6138016C
+F46A93EF066.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 294.
+See the caption package documentation for explanation.
+
+[10]
+<materiały/screen3.png, id=114, 894.34125pt x 591.20876pt>
+File: materiały/screen3.png Graphic file (type png)
+<use materiały/screen3.png>
+Package pdftex.def Info: materiały/screen3.png  used on input line 303.
+(pdftex.def)             Requested size: 346.89731pt x 229.31654pt.
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/0E59CD4E7F52E09FA72871B58823B44FA7BD23D18D61B6138016C
+F46A93EF066.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 337.
+See the caption package documentation for explanation.
+
+[11 <./materiały/screen3.png (PNG copy)>]
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/DECF289F88B1F27E61B1E8314AC75006A7BD23D18D61B6138016C
+F46A93EF066.pygtex
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 9.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 9.
+)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 378.
+See the caption package documentation for explanation.
+
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/A21C462AD87D85A550BE7597F5FB4AEBA7BD23D18D61B6138016C
+F46A93EF066.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 403.
+See the caption package documentation for explanation.
+
+[12{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/
+MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+<materiały/screen4.png, id=129, 677.53125pt x 250.9375pt>
+File: materiały/screen4.png Graphic file (type png)
+<use materiały/screen4.png>
+Package pdftex.def Info: materiały/screen4.png  used on input line 413.
+(pdftex.def)             Requested size: 303.53267pt x 112.42305pt.
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/090470414C71BAE92ED60EE845388305A7BD23D18D61B6138016C
+F46A93EF066.pygtex [13 <./materiały/screen4.png (PNG copy)>])
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 481.
+See the caption package documentation for explanation.
+
+<materiały/screen5.png, id=136, 228.855pt x 208.78pt>
+File: materiały/screen5.png Graphic file (type png)
+<use materiały/screen5.png>
+Package pdftex.def Info: materiały/screen5.png  used on input line 490.
+(pdftex.def)             Requested size: 130.08731pt x 118.68088pt.
+[14 <./materiały/screen5.png (PNG copy)>]
+<materiały/screen6.png, id=143, 234.8775pt x 302.12875pt>
+File: materiały/screen6.png Graphic file (type png)
+<use materiały/screen6.png>
+Package pdftex.def Info: materiały/screen6.png  used on input line 499.
+(pdftex.def)             Requested size: 151.76964pt x 195.22421pt.
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/5E610B584F53412CA483ACC57EB62DB8A7BD23D18D61B6138016C
+F46A93EF066.pygtex [15 <./materiały/screen6.png (PNG copy)>])
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 554.
+See the caption package documentation for explanation.
+
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/DBBB4DD988708B034EB1A4C5A9348697A7BD23D18D61B6138016C
+F46A93EF066.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 588.
+See the caption package documentation for explanation.
+
+[16]
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/4E966624DE8D91E14F71FE769A8C0B65A7BD23D18D61B6138016C
+F46A93EF066.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 650.
+See the caption package documentation for explanation.
+
+[17]
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/1434AB8FDD2DA448B67DB2F1DF3F7AE7A7BD23D18D61B6138016C
+F46A93EF066.pygtex [18] [19])
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 772.
+See the caption package documentation for explanation.
+
+File: materiały/screen5.png Graphic file (type png)
+<use materiały/screen5.png>
+Package pdftex.def Info: materiały/screen5.png  used on input line 778.
+(pdftex.def)             Requested size: 130.08731pt x 118.68088pt.
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/3F6106D902B789BABA0F8881E39D45131EEFC1DC0DDE914B269AD
+C4CA402334E.pygtex [20])
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 819.
+See the caption package documentation for explanation.
+
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/699CB6884A1647B535CBDF14433032E91EEFC1DC0DDE914B269AD
+C4CA402334E.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 859.
+See the caption package documentation for explanation.
+
+[21]
+\openout3 = `template_Article.pyg'.
+
+
+(_minted-template_Article/3D968E3F8E0346CBA698D2567924D0471EEFC1DC0DDE914B269AD
+C4CA402334E.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 894.
+See the caption package documentation for explanation.
+
+) [22]
+\openout2 = `Podsumowanie.aux'.
+
+ (Podsumowanie.tex) [23
+
+
+
+] (template_Article.aux (Wstęp.aux)
+(Realizacja.aux) (Podsumowanie.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
 Package rerunfilecheck Info: File `template_Article.out' has not changed.
-(rerunfilecheck)             Checksum: CB336707D64EC119DE593297C2EF79F2;883.
+(rerunfilecheck)             Checksum: 832CB4F8175B0130835546224C129837;1806.
+runsystem(del template_Article.pyg)...executed.
+
  ) 
 Here is how much of TeX's memory you used:
- 16792 strings out of 475248
- 286844 string characters out of 5767624
- 1928785 words of memory out of 5000000
- 38041 multiletter control sequences out of 15000+600000
- 591566 words of font info for 56 fonts, out of 8000000 for 9000
+ 17353 strings out of 475248
+ 307016 string characters out of 5767624
+ 1932785 words of memory out of 5000000
+ 38456 multiletter control sequences out of 15000+600000
+ 606298 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,6n,81p,926b,590s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,9n,81p,926b,918s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/M
-iKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
-ic/lm/lmr17.pfb>
-Output written on template_Article.pdf (4 pages, 103629 bytes).
+iKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/publ
+ic/lm/lmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Pr
+ogram Files/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX/font
+s/type1/public/lm/lmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtk
+10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Fi
+les/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
+Output written on template_Article.pdf (23 pages, 926010 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 255 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 500000)
+ 119 words of extra memory for PDF output out of 10000 (max. 10000000)
 

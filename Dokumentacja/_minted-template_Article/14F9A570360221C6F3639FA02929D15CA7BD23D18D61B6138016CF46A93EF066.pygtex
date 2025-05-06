@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function} \PYG{n+nf}{store\PYGZus{}graph\PYGZus{}configuration} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{n+nb}{file\PYGZus{}put\PYGZus{}contents}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}/etc/graph.json\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{json\PYGZus{}encode}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{function} \PYG{n+nf}{load\PYGZus{}graph\PYGZus{}configuration} \PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+	\PYG{n+nv}{\PYGZdl{}graph} \PYG{o}{=} \PYG{p}{(}\PYG{k}{array}\PYG{p}{)} \PYG{n+nb}{json\PYGZus{}decode}\PYG{p}{(}\PYG{n+nb}{file\PYGZus{}get\PYGZus{}contents}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}/etc/graph.json\PYGZdq{}}\PYG{p}{));}
+	\PYG{k}{foreach} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}graph} \PYG{k}{as} \PYG{n+nv}{\PYGZdl{}key} \PYG{o}{=\PYGZgt{}} \PYG{n+nv}{\PYGZdl{}arr}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{foreach} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}arr} \PYG{k}{as} \PYG{n+nv}{\PYGZdl{}val}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n+nb}{isset}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}val}\PYG{p}{]))} \PYG{p}{\PYGZob{}}
+				\PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}val}\PYG{p}{]} \PYG{o}{=} \PYG{p}{[];}
+			\PYG{p}{\PYGZcb{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n+nb}{in\PYGZus{}array}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}key}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}val}\PYG{p}{]))} \PYG{p}{\PYGZob{}}
+				\PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}val}\PYG{p}{][]} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}key}\PYG{p}{;}
+			\PYG{p}{\PYGZcb{}}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{k}{return} \PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}SERVER}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}REQUEST\PYGZus{}METHOD\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}POST\PYGZdq{}} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}action\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}graf\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{store\PYGZus{}graph\PYGZus{}configuration}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}graf\PYGZsq{}}\PYG{p}{]);}
+	\PYG{k}{exit}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nv}{\PYGZdl{}graph} \PYG{o}{=} \PYG{n+nx}{load\PYGZus{}graph\PYGZus{}configuration}\PYG{p}{();}
+\end{Verbatim}

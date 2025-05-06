@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function} \PYG{n+nf}{log\PYGZus{}central} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{global} \PYG{n+nv}{\PYGZdl{}serverId}\PYG{p}{;}
+	\PYG{n+nx}{cmd\PYGZus{}send}\PYG{p}{([}
+		\PYG{l+s+s2}{\PYGZdq{}action\PYGZdq{}} \PYG{o}{=\PYGZgt{}} \PYG{l+s+s2}{\PYGZdq{}log\PYGZdq{}}\PYG{p}{,}
+		\PYG{l+s+s2}{\PYGZdq{}msg\PYGZdq{}} \PYG{o}{=\PYGZgt{}} \PYG{l+s+s2}{\PYGZdq{}[S}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}serverId}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{] \PYGZdq{}} \PYG{o}{.} \PYG{n+nv}{\PYGZdl{}msg}
+	\PYG{p}{],} \PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

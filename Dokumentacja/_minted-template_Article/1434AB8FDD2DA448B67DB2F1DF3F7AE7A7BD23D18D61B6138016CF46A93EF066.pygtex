@@ -1,0 +1,105 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function} \PYG{n+nf}{hamming\PYGZus{}check} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{l+s+sd}{/** OMP */}
+	\PYG{n+nv}{\PYGZdl{}omp} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{16}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}omp} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}} \PYG{o}{?} \PYG{l+m+mi}{1} \PYG{o}{:} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	\PYG{n+nv}{\PYGZdl{}omp} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	
+	\PYG{n+nv}{\PYGZdl{}mx} \PYG{o}{=} \PYG{p}{[}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{],}
+		\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}
+	\PYG{p}{];}
+	
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}j} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}j} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}j}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}j}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{*} \PYG{l+m+mi}{4} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}j}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)} \PYG{o}{?} \PYG{l+m+mi}{1} \PYG{o}{:} \PYG{l+m+mi}{0}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{l+s+sd}{/**}
+\PYG{l+s+sd}{	* Liczenie bitów parzystości, i sprawdzenie z orginalnymi}
+\PYG{l+s+sd}{	* oraz z dodatkowym w celu określenia ilości błędów, i}
+\PYG{l+s+sd}{	* ewentualnej możliwości korekty}
+\PYG{l+s+sd}{	*/}
+	
+	\PYG{n+nv}{\PYGZdl{}op1} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{];}
+	\PYG{n+nv}{\PYGZdl{}op2} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{];}
+	\PYG{n+nv}{\PYGZdl{}op4} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+	\PYG{n+nv}{\PYGZdl{}op8} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+	
+	\PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	
+	\PYG{n+nv}{\PYGZdl{}p1} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}p2} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}p4} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}p8} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+	
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{4}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}p1} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{3}\PYG{p}{];}
+		\PYG{n+nv}{\PYGZdl{}p2} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{][}\PYG{l+m+mi}{3}\PYG{p}{];}
+		
+		\PYG{n+nv}{\PYGZdl{}p4} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{];}
+		\PYG{n+nv}{\PYGZdl{}p8} \PYG{o}{+=} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{+} \PYG{n+nv}{\PYGZdl{}mx}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{][}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{];}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nv}{\PYGZdl{}p1} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}p2} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}p4} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}p8} \PYG{o}{\PYGZpc{}=} \PYG{l+m+mi}{2}\PYG{p}{;}
+	
+	\PYG{n+nv}{\PYGZdl{}areParityBitsCorrect} \PYG{o}{=} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}p1} \PYG{o}{==} \PYG{n+nv}{\PYGZdl{}op1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}p2} \PYG{o}{==} \PYG{n+nv}{\PYGZdl{}op2} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}p4} \PYG{o}{==} \PYG{n+nv}{\PYGZdl{}op4} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}p8} \PYG{o}{==} \PYG{n+nv}{\PYGZdl{}op8}\PYG{p}{);}
+	\PYG{n+nv}{\PYGZdl{}isOveralParityCorrect} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}omp} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{;}
+	
+	\PYG{l+s+sd}{/** Nie da się poprawić, dwa błędy */}
+	\PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n+nv}{\PYGZdl{}areParityBitsCorrect} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}isOveralParityCorrect}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Wykryto błąd podwójny, poddaje się!\PYGZdq{}}\PYG{p}{);}
+		\PYG{k}{return} \PYG{k}{false}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{l+s+sd}{/** Nie ma co porpawiać, parzystość się zgadza */}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}areParityBitsCorrect} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}isOveralParityCorrect}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{return} \PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Wykryto błąd pojedyńczy!\PYGZdq{}}\PYG{p}{);}
+	
+	\PYG{l+s+sd}{/**}
+\PYG{l+s+sd}{	* Jak weźmiemy \PYGZob{}p8, p4, p2, p1\PYGZcb{}, to jest to}
+\PYG{l+s+sd}{	* dosłownie index bitu który był flipnięty}
+\PYG{l+s+sd}{	*/}
+	
+	\PYG{n+nv}{\PYGZdl{}pos} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}0000\PYGZdq{}}\PYG{p}{;}
+	
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}p1} \PYG{o}{!=} \PYG{n+nv}{\PYGZdl{}op1}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}p2} \PYG{o}{!=} \PYG{n+nv}{\PYGZdl{}op2}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}p4} \PYG{o}{!=} \PYG{n+nv}{\PYGZdl{}op4}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}p8} \PYG{o}{!=} \PYG{n+nv}{\PYGZdl{}op8}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nv}{\PYGZdl{}pos} \PYG{o}{=} \PYG{n+nb}{bindec}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{);}
+	\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)} \PYG{o}{?} \PYG{l+s+s1}{\PYGZsq{}0\PYGZsq{}} \PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+	
+	\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Korekta: \PYGZdq{}} \PYG{o}{.} \PYG{n+nx}{msg\PYGZus{}pp}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{)} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{} , w pozycji: \PYGZdq{}} \PYG{o}{.} \PYG{n+nv}{\PYGZdl{}pos}\PYG{p}{);}
+	
+	\PYG{k}{return} \PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

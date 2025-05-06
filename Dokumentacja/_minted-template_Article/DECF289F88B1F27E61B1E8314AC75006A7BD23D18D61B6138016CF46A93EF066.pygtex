@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}SERVER}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}REQUEST\PYGZus{}URI\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}/getlog\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{k}{include} \PYG{l+s+s2}{\PYGZdq{}./log.php\PYGZdq{}}\PYG{p}{;}
+	\PYG{k}{exit}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{function} \PYG{n+nf}{msg\PYGZus{}pp} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{return} \PYG{n+nb}{substr}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}} \PYG{o}{.} \PYG{n+nb}{substr}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}} \PYG{o}{.} \PYG{n+nb}{substr}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{)} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}} \PYG{o}{.} \PYG{n+nb}{substr}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{,} \PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{function} \PYG{n+nf}{log\PYGZus{}msg} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{n+nb}{file\PYGZus{}put\PYGZus{}contents}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}./log.txt\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}[\PYGZdq{}} \PYG{o}{.} \PYG{n+nb}{date}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Y\PYGZhy{}m\PYGZhy{}d G:i:s\PYGZsq{}}\PYG{p}{)} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{}] \PYGZdq{}} \PYG{o}{.} \PYG{n+nv}{\PYGZdl{}msg} \PYG{o}{.} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n+nx}{FILE\PYGZus{}APPEND}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}SERVER}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}REQUEST\PYGZus{}METHOD\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}POST\PYGZdq{}} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}action\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}clear\PYGZus{}log\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n+nb}{file\PYGZus{}put\PYGZus{}contents}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}./log.txt\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}SERVER}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}REQUEST\PYGZus{}METHOD\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}POST\PYGZdq{}} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}action\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}log\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{log\PYGZus{}msg}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}msg\PYGZsq{}}\PYG{p}{]);}
+	\PYG{k}{exit}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

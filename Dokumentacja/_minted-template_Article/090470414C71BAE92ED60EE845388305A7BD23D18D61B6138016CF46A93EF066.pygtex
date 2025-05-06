@@ -1,0 +1,52 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function} \PYG{n+nf}{toggler\PYGZus{}sim} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{16}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{=} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)} \PYG{o}{?} \PYG{l+s+s1}{\PYGZsq{}0\PYGZsq{}} \PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k}{return} \PYG{n+nv}{\PYGZdl{}msg}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{function} \PYG{n+nf}{store\PYGZus{}toggler} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{n+nb}{file\PYGZus{}put\PYGZus{}contents}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}/etc/toggler.json\PYGZdq{}}\PYG{p}{,} \PYG{n+nb}{json\PYGZus{}encode}\PYG{p}{([}\PYG{l+s+s2}{\PYGZdq{}bits\PYGZdq{}} \PYG{o}{=\PYGZgt{}} \PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{]));}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{function} \PYG{n+nf}{load\PYGZus{}toggler} \PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{return} \PYG{n+nb}{json\PYGZus{}decode}\PYG{p}{(}\PYG{n+nb}{file\PYGZus{}get\PYGZus{}contents}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}/etc/toggler.json\PYGZdq{}}\PYG{p}{))}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n+na}{bits} \PYG{o}{??} \PYG{l+s+s2}{\PYGZdq{}0000000000000000\PYGZdq{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}SERVER}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}REQUEST\PYGZus{}METHOD\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}POST\PYGZdq{}} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}action\PYGZsq{}}\PYG{p}{]} \PYG{o}{===} \PYG{l+s+s2}{\PYGZdq{}set\PYGZdq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n+nv}{\PYGZdl{}bits} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{;}
+	
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{16}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nv}{\PYGZdl{}bits} \PYG{o}{.=} \PYG{n+nb}{isset}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}\PYGZus{}POST}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}bit\PYGZus{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}i}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{])} \PYG{o}{?} \PYG{l+s+s2}{\PYGZdq{}1\PYGZdq{}} \PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}0\PYGZdq{}}\PYG{p}{;}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{n+nx}{store\PYGZus{}toggler}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{);}
+	\PYG{n+nx}{log\PYGZus{}central}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}S}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}serverId}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ przestawia bity: \PYGZdq{}} \PYG{o}{.} \PYG{n+nx}{msg\PYGZus{}pp}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n+nv}{\PYGZdl{}bits} \PYG{o}{=} \PYG{n+nx}{load\PYGZus{}toggler}\PYG{p}{();}
+
+\PYG{c+cp}{?\PYGZgt{}}
+
+\PYG{x}{\PYGZlt{}form action=\PYGZdq{}/\PYGZdq{} method=\PYGZdq{}POST\PYGZdq{}\PYGZgt{}}
+\PYG{x}{	\PYGZlt{}input type=\PYGZdq{}hidden\PYGZdq{} name=\PYGZdq{}action\PYGZdq{} value=\PYGZdq{}set\PYGZdq{} /\PYGZgt{}}
+
+\PYG{x}{	(S}\PYG{c+cp}{\PYGZlt{}?}\PYG{o}{=} \PYG{n+nv}{\PYGZdl{}serverId} \PYG{c+cp}{?\PYGZgt{}}\PYG{x}{) Zamień:}
+\PYG{x}{	}\PYG{c+cp}{\PYGZlt{}?} \PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{16}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)}\PYG{o}{:} \PYG{c+cp}{?\PYGZgt{}}
+\PYG{x}{		\PYGZlt{}input type=\PYGZdq{}checkbox\PYGZdq{} name=\PYGZdq{}bit\PYGZus{}}\PYG{c+cp}{\PYGZlt{}?}\PYG{o}{=} \PYG{n+nv}{\PYGZdl{}i} \PYG{c+cp}{?\PYGZgt{}}\PYG{x}{\PYGZdq{} }\PYG{c+cp}{\PYGZlt{}?}\PYG{o}{=} \PYG{n+nv}{\PYGZdl{}bits}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}i}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}1\PYGZdq{}} \PYG{o}{?} \PYG{l+s+s2}{\PYGZdq{}checked\PYGZdq{}} \PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}} \PYG{c+cp}{?\PYGZgt{}}\PYG{x}{ /\PYGZgt{}}
+\PYG{x}{	}
+\PYG{x}{		}\PYG{c+cp}{\PYGZlt{}?} \PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{4} \PYG{o}{==} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{o}{:} \PYG{c+cp}{?\PYGZgt{}}
+\PYG{x}{			\PYGZlt{}span style=\PYGZdq{}margin\PYGZhy{}left: 20px;\PYGZdq{}\PYGZgt{}\PYGZlt{}/span\PYGZgt{}}
+\PYG{x}{		}\PYG{c+cp}{\PYGZlt{}?} \PYG{k}{endif} \PYG{c+cp}{?\PYGZgt{}}
+\PYG{x}{	}\PYG{c+cp}{\PYGZlt{}?} \PYG{k}{endfor} \PYG{c+cp}{?\PYGZgt{}}
+\PYG{x}{	}
+\PYG{x}{	\PYGZlt{}button\PYGZgt{}Ustaw\PYGZlt{}/button\PYGZgt{}}
+\PYG{x}{\PYGZlt{}/form\PYGZgt{}}
+\end{Verbatim}

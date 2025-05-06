@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nv}{\PYGZdl{}visited} \PYG{o}{=} \PYG{p}{[];}
+
+\PYG{k}{function} \PYG{n+nf}{route\PYGZus{}graph\PYGZus{}traverse} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ptr}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}dest}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{global} \PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{;}
+	\PYG{k}{global} \PYG{n+nv}{\PYGZdl{}visited}\PYG{p}{;}
+	\PYG{n+nv}{\PYGZdl{}visited}\PYG{p}{[]} \PYG{o}{=} \PYG{n+nv}{\PYGZdl{}ptr}\PYG{p}{;}
+	
+	\PYG{k}{foreach} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{[}\PYG{n+nv}{\PYGZdl{}ptr}\PYG{p}{]} \PYG{k}{as} \PYG{n+nv}{\PYGZdl{}edge}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		
+		\PYG{k}{if} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}edge} \PYG{o}{==} \PYG{n+nv}{\PYGZdl{}dest}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{return} \PYG{n+nv}{\PYGZdl{}edge}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+		
+		\PYG{k}{if} \PYG{p}{(}\PYG{n+nb}{in\PYGZus{}array}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}edge}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}visited}\PYG{p}{))} \PYG{p}{\PYGZob{}}
+			\PYG{l+s+sd}{/** już odwiedzony */}
+			\PYG{k}{continue}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+		
+		\PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{route\PYGZus{}graph\PYGZus{}traverse}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}edge}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}dest}\PYG{p}{)} \PYG{o}{!=} \PYG{k}{null}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{return} \PYG{n+nv}{\PYGZdl{}edge}\PYG{p}{;}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+	
+	\PYG{k}{return} \PYG{k}{null}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{function} \PYG{n+nf}{route\PYGZus{}graph} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}dest}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{global} \PYG{n+nv}{\PYGZdl{}graph}\PYG{p}{;}
+	\PYG{k}{global} \PYG{n+nv}{\PYGZdl{}serverId}\PYG{p}{;}
+	\PYG{k}{return} \PYG{n+nx}{route\PYGZus{}graph\PYGZus{}traverse}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}serverId}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}dest}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

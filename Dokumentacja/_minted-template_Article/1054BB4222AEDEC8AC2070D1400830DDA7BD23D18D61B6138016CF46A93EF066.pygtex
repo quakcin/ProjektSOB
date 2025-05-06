@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function} \PYG{n+nf}{cmd\PYGZus{}broadcast} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}cmd}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{for} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mi}{7}\PYG{p}{;} \PYG{n+nv}{\PYGZdl{}i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{cmd\PYGZus{}send}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}cmd}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}i}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{function} \PYG{n+nf}{cmd\PYGZus{}send} \PYG{p}{(}\PYG{n+nv}{\PYGZdl{}cmd}\PYG{p}{,} \PYG{n+nv}{\PYGZdl{}serverId}\PYG{p}{)}
+\PYG{p}{\PYGZob{}}
+	\PYG{n+nv}{\PYGZdl{}url} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}http://php}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}serverId}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{:800}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nv}{\PYGZdl{}serverId}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{;}
+	
+	\PYG{n+nv}{\PYGZdl{}ch} \PYG{o}{=} \PYG{n+nb}{curl\PYGZus{}init}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}url}\PYG{p}{);}
+	\PYG{n+nb}{curl\PYGZus{}setopt}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ch}\PYG{p}{,} \PYG{n+nx}{CURLOPT\PYGZus{}RETURNTRANSFER}\PYG{p}{,} \PYG{k}{true}\PYG{p}{);}
+	\PYG{n+nb}{curl\PYGZus{}setopt}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ch}\PYG{p}{,} \PYG{n+nx}{CURLOPT\PYGZus{}POST}\PYG{p}{,} \PYG{k}{true}\PYG{p}{);}
+	\PYG{n+nb}{curl\PYGZus{}setopt}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ch}\PYG{p}{,} \PYG{n+nx}{CURLOPT\PYGZus{}POSTFIELDS}\PYG{p}{,} \PYG{n+nb}{http\PYGZus{}build\PYGZus{}query}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}cmd}\PYG{p}{));}
+	\PYG{n+nb}{curl\PYGZus{}setopt}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ch}\PYG{p}{,} \PYG{n+nx}{CURLOPT\PYGZus{}TIMEOUT\PYGZus{}MS}\PYG{p}{,} \PYG{l+m+mi}{100}\PYG{p}{);}
+	\PYG{n+nb}{curl\PYGZus{}setopt}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ch}\PYG{p}{,} \PYG{n+nx}{CURLOPT\PYGZus{}NOSIGNAL}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{);}
+	
+	\PYG{n+nv}{\PYGZdl{}response} \PYG{o}{=} \PYG{n+nb}{curl\PYGZus{}exec}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ch}\PYG{p}{);}
+	
+	\PYG{n+nb}{curl\PYGZus{}close}\PYG{p}{(}\PYG{n+nv}{\PYGZdl{}ch}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

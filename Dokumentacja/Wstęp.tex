@@ -5,13 +5,12 @@
 \begin{itemize}
 	\item System składa się z 8 serwerów połączonych w graf, umożliwiający komunikację między nimi.
 	\item Jeden z serwerów pełni funkcję serwera nadzorującego, który zarządza przesyłaniem danych i kontrolą poprawności transmisji.
-	\item Topologia grafu może być dowolna, np. pełne połączenie, pierścień, drzewo, siatka częściowa - struktura będzie definiowana przez użytkownika za pomocą pliku XML
+	\item Topologia grafu może być dowolna, np. pełne połączenie, pierścień, drzewo, siatka częściowa - struktura będzie definiowana przez użytkownika
 	\item Serwer nadzorujący przesyła 16-bitowe bloki danych, które są zabezpieczone kodem korekcyjnym Hamminga 
 	\item Kody Hamminga pozwalają na korekcję pojedynczych błędów i detekcję podwójnych błędów, co zwiększa niezawodność systemu.
 	\item Każdy serwer odbierający musi być wyposażony w mechanizm dekodowania i sprawdzania syndromu błędu. Po otrzymaniu danych, wykonuje dekodowanie Hamminga, aby sprawdzić poprawność transmisji. W przypadku wykrycia pojedynczego błędu, serwer koryguje go samodzielnie.
-	\item Symulacja błędów jest realizowana w sposób losowy.
+	\item Symulacja błędów jest realizowana przez użytkownika dla każdego serwera indywidualnie.
 	\item Serwer odbierający raportuje raportuje wystąpienie błędu oraz skuteczność jego korekcji.
-	\item System umożliwia rozszerzenie liczby serwerów, zachowując poprawność kodowania i weryfikacji błędów.
 \end{itemize}
 
 \subsection{Wstęp teoretyczny}
