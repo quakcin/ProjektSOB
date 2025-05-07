@@ -11,6 +11,7 @@
 	\item Każdy serwer odbierający musi być wyposażony w mechanizm dekodowania i sprawdzania syndromu błędu. Po otrzymaniu danych, wykonuje dekodowanie Hamminga, aby sprawdzić poprawność transmisji. W przypadku wykrycia pojedynczego błędu, serwer koryguje go samodzielnie.
 	\item Symulacja błędów jest realizowana przez użytkownika dla każdego serwera indywidualnie.
 	\item Serwer odbierający raportuje raportuje wystąpienie błędu oraz skuteczność jego korekcji.
+	\item Serwer odbierający może być niedostępny podczas próby przesłania żądania, co zostanie ujęte w logu.
 \end{itemize}
 
 \subsection{Wstęp teoretyczny}

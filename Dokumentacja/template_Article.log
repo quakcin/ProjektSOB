@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.25)  6 MAY 2025 19:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.25)  7 MAY 2025 20:12
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -725,7 +725,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 6
  (C:\Program Files\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (2.8914pt too wide) in paragraph at lines 17--18
+Overfull \hbox (2.8914pt too wide) in paragraph at lines 18--19
 []\T1/lmr/m/n/12 Celem re-ali-zo-wa-nego pro-jektu jest stwo-rze-nie sys-temu t
 rans-mi-sji da-nych z o�mioma
  []
@@ -875,11 +875,11 @@ See the caption package documentation for explanation.
 
 [12{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/
 MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
-<materiały/screen4.png, id=129, 677.53125pt x 250.9375pt>
+<materiały/screen4.png, id=129, 849.1725pt x 247.92625pt>
 File: materiały/screen4.png Graphic file (type png)
 <use materiały/screen4.png>
 Package pdftex.def Info: materiały/screen4.png  used on input line 413.
-(pdftex.def)             Requested size: 303.53267pt x 112.42305pt.
+(pdftex.def)             Requested size: 303.53267pt x 88.61783pt.
 \openout3 = `template_Article.pyg'.
 
 
@@ -978,6 +978,21 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 894.
 See the caption package documentation for explanation.
 
+\openout3 = `template_Article.pyg'.
+
+runsystem(pygmentize -l "text" -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl="False" -P startinline="True" -o _minted-template_Article/60E7D6C986C22F
+2F5DA09494B669EBF71EEFC1DC0DDE914B269ADC4CA402334E.pygtex template_Article.pyg)
+...executed.
+
+
+(_minted-template_Article/60E7D6C986C22F2F5DA09494B669EBF71EEFC1DC0DDE914B269AD
+C4CA402334E.pygtex)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 925.
+See the caption package documentation for explanation.
+
 ) [22]
 \openout2 = `Podsumowanie.aux'.
 
@@ -985,7 +1000,11 @@ See the caption package documentation for explanation.
 
 
 
-] (template_Article.aux (Wstęp.aux)
+]
+runsystem(del _minted-template_Article\77D3619B3A3313DBA9ECE31CF7E6597D1EEFC1DC
+0DDE914B269ADC4CA402334E.pygtex)...executed.
+
+ (template_Article.aux (Wstęp.aux)
 (Realizacja.aux) (Podsumowanie.aux))
  ***********
 LaTeX2e <2023-06-01> patch level 1
@@ -997,10 +1016,10 @@ runsystem(del template_Article.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 17353 strings out of 475248
- 307016 string characters out of 5767624
+ 17364 strings out of 475248
+ 308048 string characters out of 5767624
  1932785 words of memory out of 5000000
- 38456 multiletter control sequences out of 15000+600000
+ 38463 multiletter control sequences out of 15000+600000
  606298 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,9n,81p,926b,918s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1011,9 +1030,9 @@ ogram Files/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX/font
 s/type1/public/lm/lmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtk
 10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/lm/lmtti10.pfb>
-Output written on template_Article.pdf (23 pages, 926010 bytes).
+Output written on template_Article.pdf (23 pages, 929871 bytes).
 PDF statistics:
- 255 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 500000)
+ 257 PDF objects out of 1000 (max. 8388607)
+ 67 named destinations out of 1000 (max. 500000)
  119 words of extra memory for PDF output out of 10000 (max. 10000000)
 

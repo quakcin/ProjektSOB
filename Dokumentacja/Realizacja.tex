@@ -405,7 +405,7 @@ function log_central ($msg)
 
 \newpage
 \subsection{Symulacja błędu}
-Widok symulacji błędu jest załadowaną w iframe stroną serwera mniejszego, przyciski S1 do S7 zmieniają podgląd na konkretny serwer. Ustawienie konkretnego bitu sprawi, że w trakcie przekazywania komunikatu dalej przez ten serwer bit w ustawionej pozycji zostanie odwrócony, co pozwala w kontrolowany sposób symulować błędy. 
+Widok symulacji błędu jest załadowaną w iframe stroną serwera mniejszego, przyciski S1 do S7 zmieniają podgląd na konkretny serwer. Ustawienie konkretnego bitu sprawi, że w trakcie przekazywania komunikatu dalej przez ten serwer bit w ustawionej pozycji zostanie odwrócony, co pozwala w kontrolowany sposób symulować błędy. Istnieje również możliwość wyłączenia serwera, za pomocą ostatniego checkbox'a. W przypadku próby połączenia z wyłączonym serwerem przesyłanie komunikatu zostanie przerwane.
 
 
 \begin{figure}[H]
@@ -892,4 +892,35 @@ Wysyłanie komunikatu z S1 do S7: 1101 1000 1110 0100
 	\end{minted}
 	\vspace{-10pt}
 	\captionof{listing}{Przebieg komunikacji między S1 i S7 z podwójnym błędem}
+\end{empty}
+
+\begin{empty}
+	\begin{minted}[
+		startinline,
+		linenos,
+		frame=lines,
+		framesep=2mm,
+		baselinestretch=1.2,
+		fontsize=\footnotesize,
+		breaklines,
+		obeytabs=true,
+		tabsize=2,
+		]{text}
+[S4] S4 przestawia bity: 0000 1000 0000 0000
+Wysyłanie komunikatu z S1 do S7: 0100 0001 0001 0100
+Nie można wysłać żądania do serwera S1
+[S1] Przekazuje komunikat: 0100 0001 0001 0100 do: S2
+[S1] Symuluje błąd: 0100 0101 0001 0100 w: 0000 0100 0000 0000
+[S2] Wykryto błąd pojedyńczy!
+[S2] Korekta: 0100 0001 0001 0100 , w pozycji: 5
+[S2] Przekazuje komunikat: 0100 0001 0001 0100 do: S3
+[S2] Symuluje błąd: 0100 0011 0001 0100 w: 0000 0010 0000 0000
+[S3] Wykryto błąd pojedyńczy!
+[S3] Korekta: 0100 0001 0001 0100 , w pozycji: 6
+[S3] Przekazuje komunikat: 0100 0001 0001 0100 do: S4
+[S3] Symuluje błąd: 0100 0001 1001 0100 w: 0000 0000 1000 0000
+[S3] Nie można nawiązać połączenia z S4
+	\end{minted}
+	\vspace{-10pt}
+	\captionof{listing}{Przebieg komunikacji liniowej między S1 i S7 z wyłączonym S4}
 \end{empty}
