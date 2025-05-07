@@ -1,7 +1,7 @@
 <?php
 $serverId = ((int) $_SERVER['SERVER_PORT']) - 8000;
 
-function cmd_send ($cmd, $serverId)
+function cmd_send ($cmd, $serverId, $onFail = null)
 {
     $name = $serverId == "0" ? "central" : "php{$serverId}";
 
@@ -15,6 +15,11 @@ function cmd_send ($cmd, $serverId)
 	curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
 
 	$response = curl_exec($ch);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if ($serverId !== 0 && $status !== 200 && $onFail != null) {
+        $onFail->__invoke();
+    }
 
 	curl_close($ch);
 }
@@ -102,14 +107,14 @@ function msg_pp ($msg)
 }
 
 
-function store_toggler ($bits)
+function store_toggler ($bits, $is_disabled)
 {
-    file_put_contents("/etc/toggler.json", json_encode(["bits" => $bits]));
+    file_put_contents("/etc/toggler.json", json_encode(["bits" => $bits, "is_disabled" => $is_disabled]));
 }
 
 function load_toggler ()
 {
-    return json_decode(file_get_contents("/etc/toggler.json"))->bits ?? "0000000000000000";
+    return json_decode(file_get_contents("/etc/toggler.json"));
 }
 
 /**
@@ -247,9 +252,12 @@ function hamming_check ($msg)
  */
 if ($_SERVER["REQUEST_METHOD"] === "POST" && $_POST['action'] === "komunikat") {
 
-    /**
-     * @TODO: Sprawdzanie i korekcja jeśli nastąpił błąd
-     */
+    $toggler = load_toggler();
+
+    /** Symulacja odłączenia serwera z grafu */
+    if ($toggler->is_disabled) {
+        exit(http_response_code(500));
+    }
 
     $msg = $_POST['msg'];
 
@@ -276,7 +284,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $_POST['action'] === "komunikat") {
     log_central("Przekazuje komunikat: " . msg_pp($msg) . " do: S{$route}");
 
     /** Symulacja błędu na podstawie ustawień */
-    $bits = load_toggler();
+    $bits = $toggler->bits;
+    
     if (strpos($bits, "1") !== false) {
         $msg = toggler_sim($msg, $bits);
         log_central("Symuluje błąd: " . msg_pp($msg) . " w: " . msg_pp($bits));
@@ -287,7 +296,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $_POST['action'] === "komunikat") {
         "action" => "komunikat",
         "msg" => $msg,
         "to" => $_POST['to']
-    ], (int) $route);
+    ], (int) $route, function () use ($route) {
+        log_central("Nie można nawiązać połączenia z S{$route}");
+    });
 
     exit;
 }
@@ -304,11 +315,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && $_POST['action'] === "set") {
         $bits .= isset($_POST["bit_{$i}"]) ? "1" : "0";
     }
 
-    store_toggler($bits);
+    store_toggler($bits, isset($_POST['is_disabled']));
     log_central("S{$serverId} przestawia bity: " . msg_pp($bits));
 }
 
-$bits = load_toggler();
+$toggler = load_toggler();
+$bits = $toggler->bits;
+$is_disabled = $toggler->is_disabled;
 
 ?>
 
@@ -323,6 +336,10 @@ $bits = load_toggler();
             <span style="margin-left: 20px;"></span>
         <? endif ?>
     <? endfor ?>
+
+    [
+        <input type="checkbox" name="is_disabled" <?= $is_disabled ? 'checked' : '' ?> /> - Serwer Wyłączony
+    ]
 
 	<button>Ustaw</button>
 </form>

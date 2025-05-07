@@ -31,7 +31,7 @@ function cmd_broadcast ($cmd)
 	}
 }
 
-function cmd_send ($cmd, $serverId)
+function cmd_send ($cmd, $serverId, $onFail = null)
 {
 	$url = "http://php{$serverId}:800{$serverId}";
 	
@@ -43,6 +43,11 @@ function cmd_send ($cmd, $serverId)
 	curl_setopt($ch, CURLOPT_NOSIGNAL, 1);
 
 	$response = curl_exec($ch);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if ($status !== 200 && $onFail != null) {
+        $onFail->__invoke();
+    }
 
 	curl_close($ch);
 }
@@ -239,7 +244,9 @@ function cmd_send ($cmd, $serverId)
 			"action" => "komunikat",
 			"to" => (int) $_POST['to'],
 			"msg" => $msg
-		], $_POST['from']);
+		], $_POST['from'], function () {
+			log_msg("Nie można wysłać żądania do serwera S{$_POST['from']}");
+		});
 	}
 ?>
 
